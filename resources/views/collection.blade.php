@@ -10,7 +10,7 @@
   </div>
   <div class="grid">
     @forelse ($perfumes as $p)
-    <article class="card tilt" style="--c:{{ $p->color }}" data-cat="{{ $p->category }}" data-name="{{ $p->name }}" data-notes="{{ $p->notes }}" data-price="{{ $p->peso }}" data-stock="{{ $p->stock }}" tabindex="0">
+    <article class="card tilt" style="--c:{{ $p->color }}" data-id="{{ $p->id }}" data-cat="{{ $p->category }}" data-name="{{ $p->name }}" data-notes="{{ $p->notes }}" data-price="{{ $p->peso }}" data-stock="{{ $p->stock }}" tabindex="0">
       <div class="arch">@include('partials.bottle', ['color' => $p->color])</div>
       <h3>{{ $p->name }}</h3><span class="tag">{{ $p->category }}</span><b>{{ $p->peso }}</b>
     </article>
@@ -23,5 +23,10 @@
   <button class="x" data-close aria-label="Close">×</button>
   <div id="pm-bottle"></div><h2 id="pm-name"></h2><p id="pm-notes"></p>
   <p><b id="pm-price"></b> · <span id="pm-stock"></span></p>
+  @unless (auth()->user()->isAdmin())
+  <form method="POST" id="pm-form" class="buy">@csrf
+    <input type="number" name="qty" value="1" min="1" max="20" aria-label="Quantity"><button class="btn" id="pm-buy">Add to cart</button>
+  </form>
+  @endunless
 </div></div>
 @endsection

@@ -49,7 +49,8 @@ class AuthController extends Controller
 
         if (Auth::attempt([$field => strtolower($request->login), 'password' => $request->password], $request->boolean('remember'))) {
             $request->session()->regenerate();
-            return redirect()->intended(route('collection'))->with('success', 'Welcome back!');
+            $home = Auth::user()->isAdmin() ? route('admin.dashboard') : route('collection');
+            return redirect()->intended($home)->with('success', 'Welcome back!');
         }
 
         return back()->withInput($request->only('login'))

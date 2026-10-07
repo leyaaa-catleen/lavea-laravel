@@ -1,8 +1,8 @@
 @extends('layouts.app')
-@section('title', 'Stock — Lavéa')
+@section('title', 'Inventory — Lavéa')
 @section('content')
 <section class="section">
-  <h1 class="page-h">Stock</h1>
+  <h1 class="page-h">Inventory</h1>
   <div class="stats">
     <div class="glass"><b>{{ $perfumes->count() }}</b><span>Perfumes shown</span></div>
     <div class="glass"><b>{{ $total }}</b><span>Bottles in stock</span></div>
@@ -33,10 +33,10 @@
           </form>
           @if ($p->stock <= 5)<small class="low">Low stock</small>@endif
         </td>
-        <td class="acts">
+        <td><div class="acts">
           <button class="pill small" data-edit='@json($p)'>Edit</button>
           <form method="POST" action="{{ route('stock.destroy', $p) }}" onsubmit="return confirm('Delete {{ addslashes($p->name) }}? This cannot be undone.')">@csrf @method('DELETE')
-            <button class="pill small danger">Delete</button></form>
+            <button class="pill small danger">Delete</button></form></div>
         </td>
       </tr>
     @empty

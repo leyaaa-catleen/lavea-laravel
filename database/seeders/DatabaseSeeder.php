@@ -2,12 +2,17 @@
 namespace Database\Seeders;
 
 use App\Models\Perfume;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+        User::updateOrCreate(['email' => 'admin@lavea.test'], [
+            'name' => 'Lavéa Admin', 'username' => 'admin', 'password' => 'Admin#1234', 'role' => 'admin',
+        ]);
+
         $rows = [
             ['Violet Hour', 'Floral', 'Violet leaf, iris, white musk', 2450, 24, '#8e5bb0'],
             ['Rose Atelier', 'Floral', 'Damask rose, peony, amber', 2890, 18, '#d9779f'],

@@ -76,3 +76,22 @@ th{text-align:left;font-weight:500;font-size:.85rem;opacity:.7;padding:12px 14px
 .acts{display:flex;gap:8px;align-items:center}.row{display:grid;grid-template-columns:1fr 1fr 80px;gap:14px}
 @media(max-width:820px){.hero,.split,.auth{grid-template-columns:1fr}.hero-bottles{height:auto}.b1{height:260px}.b2{height:340px}.b3{height:220px}.family{grid-template-columns:30px 1fr}.family p{grid-column:2}.auth-art{min-height:240px}.auth-form{padding:32px 26px}.row{grid-template-columns:1fr}.stats b{font-size:2.2rem}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.toast.bad{background:#a3263f}
+.buy{display:flex;gap:12px;align-items:end;justify-content:center;margin-top:18px}.buy input{width:72px;text-align:center}
+.checkout{display:grid;grid-template-columns:1.5fr 1fr;gap:5vw;align-items:start;margin-top:30px}
+.co{background:var(--blush);border:1px solid var(--rule);border-radius:4px;padding:30px}.co h2{font-size:2rem;margin-bottom:18px}
+.total{display:flex;justify-content:space-between;font-size:1.1rem;margin-top:22px;padding-top:14px;border-top:1px solid var(--rule)}.total b{font:400 1.9rem 'Instrument Serif',serif}
+.qin{width:70px;text-align:center}.sel{width:auto;padding:8px 10px;border:1px solid var(--ink);border-radius:99px}
+.order{border-top:1px solid var(--ink);padding:22px 0 30px;max-width:760px}
+.oh{display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}.oh h3{font-size:1.8rem}
+.order ul{list-style:none;padding:0;margin:12px 0}.order li{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--rule)}
+.of{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}.of b{font:400 1.8rem 'Instrument Serif',serif}
+.st{display:inline-block;padding:2px 12px;border-radius:99px;font-size:.82rem;border:1px solid var(--ink)}
+.st.pending{background:#f3e3b5}.st.confirmed{background:#cfe3f5}.st.completed{background:#cfeacc}.st.cancelled{background:#f2c9d0}
+@media(max-width:820px){.checkout{grid-template-columns:1fr}}
+.acts{display:flex;gap:8px;align-items:center;flex-wrap:nowrap}td{height:84px}
+.badge{font:500 .75rem 'DM Sans';margin-left:12px;border:1px solid currentColor;border-radius:99px;padding:2px 12px;vertical-align:middle}
+.admin-mode .nav{background:var(--ink);color:var(--blush);border-bottom:0}
+.admin-mode .nav a,.admin-mode .nav .pill{color:var(--blush)}
+.admin-mode .nav nav>a.on,.admin-mode .nav nav>a:hover{border-color:var(--blush)}
+.admin-mode .pill.ghost{border-color:var(--blush)}.admin-mode .pill.ghost:hover{background:var(--blush);color:var(--ink)}

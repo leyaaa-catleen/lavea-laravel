@@ -54,6 +54,8 @@
       $('#pm-bottle').innerHTML = $('.bottle', c).outerHTML; $('#pm-name').textContent = c.dataset.name;
       $('#pm-notes').textContent = 'Notes: ' + (c.dataset.notes || 'Not listed yet');
       $('#pm-price').textContent = c.dataset.price; $('#pm-stock').textContent = +c.dataset.stock > 0 ? c.dataset.stock + ' in stock' : 'Sold out';
+      const bf = $('#pm-form');
+      if (bf) { const out = +c.dataset.stock < 1; bf.action = location.origin + '/cart/' + c.dataset.id; bf.hidden = out; bf.qty.max = Math.min(20, +c.dataset.stock); bf.qty.value = 1; }
       modal.hidden = false;
     };
     c.addEventListener('click', open); c.addEventListener('keydown', e => e.key === 'Enter' && open());
@@ -68,10 +70,10 @@
     const open = (p) => {
       form.reset(); $('#sm-method').innerHTML = '';
       if (p) {
-        form.action = `${location.origin}/stock/${p.id}`; $('#sm-title').textContent = 'Edit ' + p.name;
+        form.action = `${location.origin}/admin/stock/${p.id}`; $('#sm-title').textContent = 'Edit ' + p.name;
         $('#sm-method').innerHTML = '<input type="hidden" name="_method" value="PUT">';
         ['name', 'category', 'notes', 'price', 'stock', 'color'].forEach(k => form.elements[k].value = p[k] ?? '');
-      } else { form.action = `${location.origin}/stock`; $('#sm-title').textContent = 'Add perfume'; }
+      } else { form.action = `${location.origin}/admin/stock`; $('#sm-title').textContent = 'Add perfume'; }
       sm.hidden = false; form.elements.name.focus();
     };
     $('[data-add]').addEventListener('click', () => open());
